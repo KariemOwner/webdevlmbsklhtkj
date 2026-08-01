@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMK Karya Guna 2 - Sekolah Menengah Kejuruan Unggulan di Indonesia">
+    <meta name="keywords" content="SMK, SMK Karya Guna 2, Pendidikan, Kejuruan, PPDB, BLUD, PKL, BKK">
+    <title>SMK Karya Guna 2 - Sekolah Menengah Kejuruan Unggulan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#047857',      // Emerald Green 700 - Warna Utama Hijau Sekolah
+                        secondary: '#065f46',    // Emerald Green 800 - Untuk variasi gelap
+                        accent: '#10B981',       // Emerald Green 500 - Aksen hijau terang
+                        accentLight: '#34D399',  // Emerald Green 400 - Hover state
+                        gold: '#F59E0B',         // Amber 500 - Warna emas untuk highlight
+                        light: '#F0FDF4',        // Emerald 50 - Background terang
+                        dark: '#022C22'          // Emerald 950 - Untuk teks gelap
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Hero Section Background */
+        .hero-bg {
+            background: linear-gradient(rgba(4, 120, 87, 0.85), rgba(6, 95, 70, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23065f46" width="1200" height="600"/><text x="50%" y="50%" font-family="Arial" font-size="48" fill="%2310B981" text-anchor="middle">Hero Image Placeholder</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ChatBot Button */
+        .chatbot-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Navigation Hover Effect */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #10B981;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Card Hover Effect */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 1.75rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-light">
+    
+    <!-- ============================================ -->
+    <!-- FITUR WAJIB 1: Landing Page Utama           -->
+    <!-- (Lulusan Terbaik, Kerja Sama Industri,      -->
+    <!--  Jurusan, Prestasi)                          -->
+    <!-- ============================================ -->
+    
+    <!-- Header & Navbar -->
+    <header class="bg-primary shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                        <span class="text-primary font-bold text-xl">KG2</span>
+                    </div>
+                    <div>
+                        <h1 class="text-white font-bold text-lg">SMK Karya Guna 2</h1>
+                        <p class="text-gray-300 text-xs">Unggul dalam Prestasi</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#beranda" class="nav-link text-white hover:text-accent transition">Beranda</a></li>
+                    <li><a href="#profil" class="nav-link text-white hover:text-accent transition">Profil</a></li>
+                    <li><a href="#jurusan" class="nav-link text-white hover:text-accent transition">Jurusan</a></li>
+                    <li><a href="#prestasi" class="nav-link text-white hover:text-accent transition">Prestasi</a></li>
+                    <li><a href="#kontak" class="nav-link text-white hover:text-accent transition">Kontak</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <ul id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <li><a href="#beranda" class="block text-white hover:text-accent py-2">Beranda</a></li>
+                <li><a href="#profil" class="block text-white hover:text-accent py-2">Profil</a></li>
+                <li><a href="#jurusan" class="block text-white hover:text-accent py-2">Jurusan</a></li>
+                <li><a href="#prestasi" class="block text-white hover:text-accent py-2">Prestasi</a></li>
+                <li><a href="#kontak" class="block text-white hover:text-accent py-2">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-bg min-h-screen flex items-center">
+        <div class="container mx-auto px-4 py-20">
+            <div class="max-w-3xl fade-in">
+                <h2 class="hero-headline text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    Selamat Datang di<br>
+                    <span class="text-accent">SMK Karya Guna 2</span>
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl mb-8">
+                    Mewujudkan generasi unggul, kompeten, dan siap kerja di era digital dengan pendidikan kejuruan berkualitas tinggi.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#ppdb" class="bg-accent text-primary font-bold py-4 px-8 rounded-lg hover:bg-accentLight transition transform hover:scale-105 text-center">
+                        Daftar Sekarang
+                    </a>
+                    <a href="#jurusan" class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-secondary transition text-center">
+                        Lihat Jurusan
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <p class="text-3xl md:text-4xl font-bold text-accent">1000+</p>
+                        <p class="text-gray-300 text-sm">Siswa Aktif</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl md:text-4xl font-bold text-accent">50+</p>
+                        <p class="text-gray-300 text-sm">Guru Profesional</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl md:text-4xl font-bold text-accent">100%</p>
+                        <p class="text-gray-300 text-sm">Lulusan Terserap</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl md:text-4xl font-bold text-accent">20+</p>
+                        <p class="text-gray-300 text-sm">Mitra Industri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sambutan Kepala Sekolah -->
+    <section id="profil" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Sambutan Kepala Sekolah</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-xl">
+                        <div class="aspect-square flex items-center justify-center bg-primary">
+                            <span class="text-white text-lg">Foto Kepala Sekolah</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Drs. Nama Kepala Sekolah, M.Pd</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Assalamu'alaikum Warahmatullahi Wabarakatuh,<br><br>
+                        Puji syukur kita panjatkan ke hadirat Allah SWT atas rahmat dan karunia-Nya, 
+                        website SMK Karya Guna 2 ini dapat hadir sebagai media informasi dan komunikasi 
+                        antara sekolah, siswa, orang tua, dan masyarakat.<br><br>
+                        Kami berkomitmen untuk terus meningkatkan kualitas pendidikan kejuruan yang 
+                        relevan dengan kebutuhan industri, menghasilkan lulusan yang kompeten, 
+                        berakhlak mulia, dan siap menghadapi tantangan global.
+                    </p>
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='40' font-family='Arial' font-size='20'>Tanda Tangan</text></svg>" 
+                         alt="Tanda Tangan" class="h-16 opacity-70">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FITUR WAJIB 2: Website PPDB                  -->
+    <!-- (Penerimaan Peserta Didik Baru)              -->
+    <!-- ============================================ -->
+    <section id="ppdb" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Penerimaan Peserta Didik Baru</h2>
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+                    Bergabunglah bersama kami dan raih masa depan gemilang dengan pendidikan kejuruan berkualitas
+                </p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-secondary rounded-lg p-8 card-hover fade-in">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
+                        <span class="text-primary font-bold text-2xl">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Daftar Online</h3>
+                    <p class="text-gray-300 mb-4">Isi formulir pendaftaran melalui website dengan melengkapi data diri dan dokumen persyaratan.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>✓ Fotokopi KK</li>
+                        <li>✓ Fotokopi Akta Kelahiran</li>
+                        <li>✓ Pas Foto 3x4</li>
+                    </ul>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-secondary rounded-lg p-8 card-hover fade-in">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
+                        <span class="text-primary font-bold text-2xl">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Verifikasi Berkas</h3>
+                    <p class="text-gray-300 mb-4">Datang ke sekolah untuk verifikasi berkas asli dan mengikuti tes seleksi sesuai jadwal.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>✓ Tes Akademik</li>
+                        <li>✓ Wawancara</li>
+                        <li>✓ Tes Kesehatan</li>
+                    </ul>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-secondary rounded-lg p-8 card-hover fade-in">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
+                        <span class="text-primary font-bold text-2xl">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Daftar Ulang</h3>
+                    <p class="text-gray-300 mb-4">Bagi yang lulus seleksi, lakukan daftar ulang dan pembayaran administrasi untuk menjadi siswa resmi.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>✓ Pembayaran SPP</li>
+                        <li>✓ Pengambilan Seragam</li>
+                        <li>✓ Orientasi Siswa</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-block bg-accent text-primary font-bold py-4 px-12 rounded-lg hover:bg-accentLight transition transform hover:scale-105">
+                    Daftar Sekarang - Tahun Ajaran 2024/2025
+                </a>
+                <p class="mt-4 text-gray-300 text-sm">Kuota terbatas! Segera daftarkan diri Anda sebelum kuota penuh.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jurusan Section -->
+    <section id="jurusan" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Program Keahlian</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Pilih jurusan yang sesuai dengan minat dan bakatmu untuk masa depan yang cerah
+                </p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Jurusan 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Teknik Komputer & Jaringan</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">TKJ</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Mempelajari instalasi jaringan, administrasi server, troubleshooting komputer, dan teknologi cloud computing.</p>
+                        <ul class="text-gray-500 text-xs space-y-2 mb-4">
+                            <li>• Network Administrator</li>
+                            <li>• System Administrator</li>
+                            <li>• IT Support Specialist</li>
+                        </ul>
+                        <a href="#" class="text-accent font-semibold hover:text-secondary transition">Selengkapnya →</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Akuntansi & Keuangan</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">AKL</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Mempelajari pembukuan keuangan, perpajakan, audit, dan penggunaan software akuntansi modern.</p>
+                        <ul class="text-gray-500 text-xs space-y-2 mb-4">
+                            <li>• Staff Akuntansi</li>
+                            <li>• Tax Consultant</li>
+                            <li>• Financial Analyst</li>
+                        </ul>
+                        <a href="#" class="text-accent font-semibold hover:text-secondary transition">Selengkapnya →</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Multimedia</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">MM</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Mempelajari desain grafis, fotografi, videografi, animasi 2D/3D, dan pengembangan konten digital.</p>
+                        <ul class="text-gray-500 text-xs space-y-2 mb-4">
+                            <li>• Graphic Designer</li>
+                            <li>• Video Editor</li>
+                            <li>• Content Creator</li>
+                        </ul>
+                        <a href="#" class="text-accent font-semibold hover:text-secondary transition">Selengkapnya →</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Pemasaran</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">PM</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Mempelajari strategi pemasaran, digital marketing, manajemen penjualan, dan kewirausahaan.</p>
+                        <ul class="text-gray-500 text-xs space-y-2 mb-4">
+                            <li>• Marketing Executive</li>
+                            <li>• Sales Manager</li>
+                            <li>• Entrepreneur</li>
+                        </ul>
+                        <a href="#" class="text-accent font-semibold hover:text-secondary transition">Selengkapnya →</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Perkantoran</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">OTKP</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Mempelajari administrasi perkantoran, manajemen arsip, public relations, dan office automation.</p>
+                        <ul class="text-gray-500 text-xs space-y-2 mb-4">
+                            <li>• Administrative Staff</li>
+                            <li>• HR Assistant</li>
+                            <li>• Public Relations</li>
+                        </ul>
+                        <a href="#" class="text-accent font-semibold hover:text-secondary transition">Selengkapnya →</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Rekayasa Perangkat Lunak</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">RPL</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Mempelajari pemrograman web, mobile development, database management, dan software engineering.</p>
+                        <ul class="text-gray-500 text-xs space-y-2 mb-4">
+                            <li>• Web Developer</li>
+                            <li>• Mobile Developer</li>
+                            <li>• Software Engineer</li>
+                        </ul>
+                        <a href="#" class="text-accent font-semibold hover:text-secondary transition">Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FITUR WAJIB 3: Promosi Produk Unggulan      -->
+    <!-- Sekolah (BLUD - Badan Layanan Umum Daerah)  -->
+    <!-- ============================================ -->
+    <section id="blud" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Produk Unggulan Sekolah (BLUD)</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Hasil karya dan produk inovatif dari siswa SMK Karya Guna 2 yang siap bersaing di pasar
+                </p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-light rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <span class="text-gray-500">Produk 1</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary mb-2">Website Development</h3>
+                        <p class="text-gray-600 text-sm mb-3">Jasa pembuatan website profesional oleh siswa RPL</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-accent font-bold">Mulai Rp 500K</span>
+                            <a href="#" class="text-primary text-sm font-semibold hover:text-accent">Order →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-light rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <span class="text-gray-500">Produk 2</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary mb-2">Desain Grafis</h3>
+                        <p class="text-gray-600 text-sm mb-3">Logo, banner, poster, dan materi promosi visual</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-accent font-bold">Mulai Rp 100K</span>
+                            <a href="#" class="text-primary text-sm font-semibold hover:text-accent">Order →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-light rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <span class="text-gray-500">Produk 3</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary mb-2">Video Production</h3>
+                        <p class="text-gray-600 text-sm mb-3">Videografi event, company profile, konten media sosial</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-accent font-bold">Mulai Rp 750K</span>
+                            <a href="#" class="text-primary text-sm font-semibold hover:text-accent">Order →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-light rounded-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gray-300 flex items-center justify-center">
+                        <span class="text-gray-500">Produk 4</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary mb-2">IT Support</h3>
+                        <p class="text-gray-600 text-sm mb-3">Servis komputer, instalasi jaringan, maintenance sistem</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-accent font-bold">Hubungi Kami</span>
+                            <a href="#" class="text-primary text-sm font-semibold hover:text-accent">Info →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-lg hover:bg-secondary hover:text-white transition">
+                    Lihat Semua Produk
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FITUR WAJIB 4: PKL & Career Center (BKK)    -->
+    <!-- (Bursa Kerja Khusus)                         -->
+    <!-- ============================================ -->
+    <section id="bkk" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">PKL & Career Center (BKK)</h2>
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+                    Mitra industri terpercaya dan peluang karir untuk lulusan SMK Karya Guna 2
+                </p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- PKL Section -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-accent rounded-full flex items-center justify-center mr-3">
+                            <span class="text-primary font-bold">P</span>
+                        </span>
+                        Praktek Kerja Lapangan
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-secondary rounded-lg p-6">
+                            <h4 class="font-bold text-accent mb-2">100+ Mitra Industri</h4>
+                            <p class="text-gray-300 text-sm">Kerja sama dengan perusahaan nasional dan multinasional di berbagai sektor industri.</p>
+                        </div>
+                        <div class="bg-secondary rounded-lg p-6">
+                            <h4 class="font-bold text-accent mb-2">Program Terstruktur</h4>
+                            <p class="text-gray-300 text-sm">Pembimbingan intensif selama 6 bulan dengan mentor berpengalaman di bidangnya.</p>
+                        </div>
+                        <div class="bg-secondary rounded-lg p-6">
+                            <h4 class="font-bold text-accent mb-2">Sertifikat Kompetensi</h4>
+                            <p class="text-gray-300 text-sm">Pengakuan resmi dari industri atas kompetensi yang telah dikuasai selama PKL.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Career Center Section -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-accent rounded-full flex items-center justify-center mr-3">
+                            <span class="text-primary font-bold">C</span>
+                        </span>
+                        Bursa Kerja Khusus
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-secondary rounded-lg p-6">
+                            <h4 class="font-bold text-accent mb-2">Lowongan Pekerjaan</h4>
+                            <p class="text-gray-300 text-sm">Informasi lowongan kerja terbaru dari mitra industri yang membutuhkan lulusan SMK.</p>
+                        </div>
+                        <div class="bg-secondary rounded-lg p-6">
+                            <h4 class="font-bold text-accent mb-2">Career Counseling</h4>
+                            <p class="text-gray-300 text-sm">Konseling karir untuk membantu siswa menentukan jalur职业 yang sesuai.</p>
+                        </div>
+                        <div class="bg-secondary rounded-lg p-6">
+                            <h4 class="font-bold text-accent mb-2">Job Fair</h4>
+                            <p class="text-gray-300 text-sm">Event tahunan yang menghubungkan lulusan langsung dengan recruiter dari berbagai perusahaan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partner Logos -->
+            <div class="mt-16 fade-in">
+                <h4 class="text-center text-xl font-bold mb-8">Mitra Industri Kami</h4>
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
+                    <div class="bg-secondary rounded-lg p-4 flex items-center justify-center h-20">
+                        <span class="text-gray-400 text-xs text-center">Partner 1</span>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-4 flex items-center justify-center h-20">
+                        <span class="text-gray-400 text-xs text-center">Partner 2</span>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-4 flex items-center justify-center h-20">
+                        <span class="text-gray-400 text-xs text-center">Partner 3</span>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-4 flex items-center justify-center h-20">
+                        <span class="text-gray-400 text-xs text-center">Partner 4</span>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-4 flex items-center justify-center h-20">
+                        <span class="text-gray-400 text-xs text-center">Partner 5</span>
+                    </div>
+                    <div class="bg-secondary rounded-lg p-4 flex items-center justify-center h-20">
+                        <span class="text-gray-400 text-xs text-center">Partner 6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Section -->
+    <section id="prestasi" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Prestasi Siswa</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Bukti keunggulan dan dedikasi siswa SMK Karya Guna 2 di berbagai kompetisi
+                </p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Prestasi 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏆</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full">Juara 1</span>
+                            <span class="text-gray-500 text-xs ml-2">2024</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-2">LKS Nasional - Web Design</h3>
+                        <p class="text-gray-600 text-sm">Ahmad Rizki dari kelas XII RPL 1 berhasil meraih medali emas di Lomba Kompetensi Siswa tingkat nasional.</p>
+                    </div>
+                </div>
+                
+                <!-- Prestasi 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center">
+                        <span class="text-white text-4xl">🥈</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-gray-400 text-white text-xs font-bold px-3 py-1 rounded-full">Juara 2</span>
+                            <span class="text-gray-500 text-xs ml-2">2024</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-2">Kompetisi Akuntansi Provinsi</h3>
+                        <p class="text-gray-600 text-sm">Tim AKL berhasil meraih posisi runner-up dalam kompetisi akuntansi tingkat provinsi Jawa Barat.</p>
+                    </div>
+                </div>
+                
+                <!-- Prestasi 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🥉</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">Juara 3</span>
+                            <span class="text-gray-500 text-xs ml-2">2023</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-2">Festival Multimedia Nasional</h3>
+                        <p class="text-gray-600 text-sm">Karya video profil sekolah dari jurusan MM meraih penghargaan terbaik kategori dokumenter.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-lg hover:bg-secondary hover:text-white transition">
+                    Lihat Semua Prestasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FITUR WAJIB 5: AI Integrated Website         -->
+    <!-- (ChatBot)                                    -->
+    <!-- ============================================ -->
+    
+    <!-- ChatBot Button -->
+    <button id="chatbot-toggle" class="chatbot-btn bg-accent text-primary w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-accentLight transition focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+        </svg>
+    </button>
+    
+    <!-- ChatBot Window -->
+    <div id="chatbot-window" class="hidden fixed bottom-24 right-4 w-80 md:w-96 bg-white rounded-lg shadow-2xl z-1000 overflow-hidden">
+        <!-- Chat Header -->
+        <div class="bg-primary text-white p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                    <span class="text-primary font-bold">AI</span>
+                </div>
+                <div>
+                    <h4 class="font-bold">Asisten Virtual</h4>
+                    <p class="text-xs text-gray-300">Online • Siap Membantu</p>
+                </div>
+            </div>
+            <button id="chatbot-close" class="text-white hover:text-accent focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Chat Messages -->
+        <div id="chat-messages" class="h-80 overflow-y-auto p-4 bg-gray-50 space-y-4">
+            <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-accent rounded-full flex-shrink-0 flex items-center justify-center">
+                    <span class="text-primary text-xs font-bold">AI</span>
+                </div>
+                <div class="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-xs">
+                    <p class="text-sm text-gray-700">Halo! 👋 Saya asisten virtual SMK Karya Guna 2. Ada yang bisa saya bantu?</p>
+                    <p class="text-xs text-gray-400 mt-1">Baru saja</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chat Input -->
+        <div class="p-4 bg-white border-t">
+            <form id="chat-form" class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Tulis pesan..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-accent">
+                <button type="submit" class="bg-accent text-primary px-4 py-2 rounded-lg hover:bg-accentLight transition focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Jangan ragu untuk menghubungi kami jika ada pertanyaan atau ingin berkunjung ke sekolah
+                </p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Informasi Kontak</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Alamat</h4>
+                                <p class="text-gray-600 text-sm">Jl. Contoh No. 123, Kelurahan Contoh, Kecamatan Contoh, Kota Contoh, Provinsi 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Telepon / WhatsApp</h4>
+                                <p class="text-gray-600 text-sm">(021) 1234-5678<br>+62 812-3456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Email</h4>
+                                <p class="text-gray-600 text-sm">info@smkkg2.sch.id<br>ppdb@smkkg2.sch.id</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Jam Operasional</h4>
+                                <p class="text-gray-600 text-sm">Senin - Jumat: 07.00 - 16.00 WIB<br>Sabtu: 07.00 - 12.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="mt-8">
+                        <h4 class="font-bold text-primary mb-4">Ikuti Kami</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-secondary transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-secondary transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-secondary transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-secondary transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Kirim Pesan</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" placeholder="Masukkan nama Anda">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" placeholder="email@contoh.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
+                            <select id="subject" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20">
+                                <option value="">Pilih subjek</option>
+                                <option value="ppdb">Informasi PPDB</option>
+                                <option value="jurusan">Informasi Jurusan</option>
+                                <option value="pkl">Kerja Sama PKL</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                            <textarea id="message" rows="5" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" placeholder="Tulis pesan Anda..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition transform hover:scale-105">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                            <span class="text-primary font-bold text-xl">KG2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">SMK Karya Guna 2</h3>
+                            <p class="text-gray-400 text-xs">Unggul dalam Prestasi</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Sekolah Menengah Kejuruan yang berkomitmen menghasilkan lulusan kompeten, berakhlak mulia, dan siap kerja.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#beranda" class="hover:text-accent transition">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-accent transition">Profil</a></li>
+                        <li><a href="#jurusan" class="hover:text-accent transition">Jurusan</a></li>
+                        <li><a href="#ppdb" class="hover:text-accent transition">PPDB</a></li>
+                        <li><a href="#prestasi" class="hover:text-accent transition">Prestasi</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Jl. Contoh No. 123</li>
+                        <li>Kota Contoh, 12345</li>
+                        <li>(021) 1234-5678</li>
+                        <li>info@smkkg2.sch.id</li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Dapatkan informasi terbaru dari kami</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Email Anda" class="w-full px-4 py-2 rounded-lg bg-secondary text-white border border-gray-600 focus:outline-none focus:border-accent">
+                        <button type="submit" class="w-full bg-accent text-primary font-bold py-2 px-4 rounded-lg hover:bg-accentLight transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Sponsor Logos -->
+            <!-- LOGO WAJIB: 5 Logo Sponsor -->
+            <div class="border-t border-gray-700 pt-8 mb-8">
+                <h4 class="text-center text-gray-400 text-sm mb-6">Didukung Oleh</h4>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    <!-- Logo 1: JHIC -->
+                    <div class="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-400 text-xs">JHIC</span>
+                    </div>
+                    <!-- Logo 2: Jagoan Hosting -->
+                    <div class="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-400 text-xs">Jagoan Hosting</span>
+                    </div>
+                    <!-- Logo 3: Komdigi -->
+                    <div class="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-400 text-xs">Komdigi</span>
+                    </div>
+                    <!-- Logo 4: Garuda Spark -->
+                    <div class="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-400 text-xs">Garuda Spark</span>
+                    </div>
+                    <!-- Logo 5: Ngalup -->
+                    <div class="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-400 text-xs">Ngalup</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2024 SMK Karya Guna 2. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-xs mt-2">
+                    Dibuat dengan ❤️ untuk JHIC 2.0
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // ChatBot Functionality
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        
+        // Toggle chatbot window
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('hidden');
+            if (!chatbotWindow.classList.contains('hidden')) {
+                chatInput.focus();
+            }
+        });
+        
+        // Close chatbot window
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.add('hidden');
+        });
+        
+        // Handle chat form submission
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            
+            if (message) {
+                // Add user message
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Simulate AI response (placeholder for actual AI integration)
+                setTimeout(() => {
+                    const responses = [
+                        "Terima kasih atas pertanyaan Anda. Untuk informasi lebih lanjut, silakan hubungi admin sekolah.",
+                        "Pertanyaan yang bagus! Saya akan membantu Anda menemukan informasi yang dibutuhkan.",
+                        "Silakan kunjungi bagian PPDB untuk informasi pendaftaran siswa baru.",
+                        "Untuk detail jurusan, Anda bisa melihat di halaman Jurusan atau menghubungi kami langsung."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessage(randomResponse, 'ai');
+                }, 1000);
+            }
+        });
+        
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-start space-x-3 ${sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = `w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${sender === 'user' ? 'bg-primary' : 'bg-accent'}`;
+            avatar.innerHTML = `<span class="${sender === 'user' ? 'text-white' : 'text-primary'} text-xs font-bold">${sender === 'user' ? 'Anda' : 'AI'}</span>`;
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = `${sender === 'user' ? 'bg-primary text-white' : 'bg-white text-gray-700'} rounded-lg ${sender === 'user' ? 'rounded-tr-none' : 'rounded-tl-none'} p-3 shadow-sm max-w-xs`;
+            messageContent.innerHTML = `
+                <p class="text-sm">${text}</p>
+                <p class="text-xs ${sender === 'user' ? 'text-gray-300' : 'text-gray-400'} mt-1">Baru saja</p>
+            `;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(messageContent);
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Scroll Animation (Intersection Observer)
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(element => {
+            fadeObserver.observe(element);
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Sticky Header Shadow on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-2xl');
+            } else {
+                header.classList.remove('shadow-2xl');
+            }
+        });
+    </script>
+</body>
+</html>
